@@ -64,6 +64,7 @@ function chooseColors() {
   fill(brushHue%360, brightness, saturation);
 }
 
+//press the space button to clear the canvas
 function keyPressed(){
   background(95); 
 }

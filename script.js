@@ -21,6 +21,8 @@ function setup() {
   shape = 0;
   textSize(16);
   textAlign(CENTER);
+  
+  //color choices at top, shape choices at the bottom of the canvas
   text('Pastels', width/6, 30);
   text('Neon', width/2, 30);
   text('Dark Colors', width*(5/6), 30);
@@ -34,6 +36,8 @@ function draw() {
   chooseColors();
   chooseShape();
   //text(shape, 100, 100);
+  
+  //depending on where the mouse is clicked, the brush will change its color or shape (start drawing squares, lines, or ellipses)
   if(mouseIsPressed && mouseY > (height*(1/8)) && mouseY < (height*(7/8))){
    // rect(mouseX, mouseY, 15, 15);
     brushStroke();
@@ -52,6 +56,7 @@ function draw() {
   prevY = mouseY;
 }
 
+//color changes, but type of color (pastel, dark, neon) remains the same
 function chooseColors() {
   colorBrushFunction();
   brushHue += 1
@@ -63,6 +68,7 @@ function keyPressed(){
   background(95); 
 }
 
+//lines going from left to right is thinner than lines going from right to left; done to make the pen look like calligraphy.
 function brushStroke(){
   if (prevX < mouseX){
     strokeWeight(5);
@@ -72,6 +78,7 @@ function brushStroke(){
   }
 }
 
+//changes the color type (neon, pastel, dark) based on where the mouse is clicked
 function colorBrushFunction(){
   if (mouseIsPressed){
     for (let j = 0; j < numberOfColorsChoices; j++){
@@ -93,6 +100,7 @@ function colorBrushFunction(){
   }
 }
 
+/*
 function chooseShape(){
   if (mouseIsPressed){
     for (let k = 0; k < numberOfColorsChoices; k++){
@@ -102,3 +110,4 @@ function chooseShape(){
   }
 }
 }
+*/
